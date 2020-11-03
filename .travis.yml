@@ -11,8 +11,8 @@ sonar:sonar -Dsonar.projectKey=Renizmy_correction-tp1
   
 branches:
   only:
-    - develop
- 
+    - develop    
+     
 cache:
   directories:
    - $HOME/.m2
@@ -24,3 +24,4 @@ addons:
   sonarcloud:
     organization: "Renizmy"
     token: "$SONARCLOUD_TOKEN"
+
