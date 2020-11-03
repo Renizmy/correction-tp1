@@ -1,9 +1,16 @@
 language: java
+dist: xenial
+
+  
+addons:
+  sonarcloud:
+    organization: "Renizmy"
+    token: "$SONARCLOUD_TOKEN"
+
 
 script:
   - cd ./simple-api
-  - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install
-sonar:sonar -Dsonar.projectKey=Renizmy_correction-tp1
+  - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Renizmy_correction-tp1
   
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t $DOCKER_USERNAME/tp2-devops .
@@ -19,9 +26,4 @@ cache:
     
 services:
   - docker
-  
-addons:
-  sonarcloud:
-    organization: "Renizmy"
-    token: "$SONARCLOUD_TOKEN"
 
