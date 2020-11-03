@@ -6,21 +6,14 @@ addons:
   sonarcloud:
     organization: "renizmy"
     token: "$SONARCLOUD_TOKEN"
-
-
-script:
+    
+jobs:
+  include:
+    - stage: dev
+      script: bash scripts/build.sh
+    - stage: prod
+      script: bash scripts/docker_push.sh
   
-  - mvn clean verify --file ./simple-api/pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Renizmy_correction-tp1  
-  
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  
-  - docker build -t $DOCKER_USERNAME/tp2-devops:tp_database database
-  - docker build -t $DOCKER_USERNAME/tp2-devops:tp_simple-api simple-api
-  - docker build -t $DOCKER_USERNAME/tp2-devops:tp_httpd httpd
-  
-  - docker push $DOCKER_USERNAME/tp2-devops:tp_database
-  - docker push $DOCKER_USERNAME/tp2-devops:tp_simple-api
-  - docker push $DOCKER_USERNAME/tp2-devops:tp_httpd
   
 branches:
   only:
