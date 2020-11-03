@@ -9,12 +9,18 @@ addons:
 
 
 script:
-  - cd ./simple-api
-  - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Renizmy_correction-tp1
   
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t $DOCKER_USERNAME/tp2-devops .
-  - docker push $DOCKER_USERNAME/tp2-devops
+  - mvn clean verify --file ./simple-api/pom.xml org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Renizmy_correction-tp1  
+  
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  
+  - docker build -t $DOCKER_USERNAME/tp2-devops:database database
+  - docker build -t $DOCKER_USERNAME/tp2-devops:httpd httpd
+  - docker build -t $DOCKER_USERNAME/tp2-devops:simple-api simple-api
+  
+  - docker push $DOCKER_USERNAME/tp2-devops:database database
+  - docker push $DOCKER_USERNAME/tp2-devops:httpd httpd
+  - docker push $DOCKER_USERNAME/tp2-devops:simple-api simple-api
   
 branches:
   only:
