@@ -12,7 +12,7 @@ jobs:
     - stage: dev
       script: bash scripts/build.sh
     - stage: prod
-      script: bash scripts/docker_push.sh
+      script: bash scripts/docker.sh
   
   
 branches:
