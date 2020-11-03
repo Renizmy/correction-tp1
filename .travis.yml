@@ -20,9 +20,6 @@ cache:
 services:
   - docker
   
-notifications:
-  email: false
-  
 addons:
   sonarcloud:
     organization: "Renizmy"
