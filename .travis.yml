@@ -4,7 +4,7 @@ dist: xenial
   
 addons:
   sonarcloud:
-    organization: "Renizmy"
+    organization: "renizmy"
     token: "$SONARCLOUD_TOKEN"
 
 
