@@ -4,17 +4,17 @@ script:
   - cd ./simple-api
   - mvn clean verify
   
-  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  -docker build -t $DOCKER_USERNAME/tp2-devops .
-  -docker push $DOCKER_USERNAME/tp2-devops
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t $DOCKER_USERNAME/tp2-devops .
+  - docker push $DOCKER_USERNAME/tp2-devops
+  
+branches:
+  only:
+    - develop
  
 cache:
   directories:
-   -$HOME/.m2
- 
+   - $HOME/.m2
+    
 services:
-  -docker
- 
-branches:
-  only:
-   - develop
+  - docker
