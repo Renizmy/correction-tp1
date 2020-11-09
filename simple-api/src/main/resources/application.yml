@@ -12,10 +12,11 @@ spring:
     username: usr
     password: pwd
     driver-class-name: org.postgresql.Driver
-  management:
-   server:
+
+management:
+  server:
     add-application-context-header: false
-   endpoints:
+  endpoints:
     web:
-     exposure:
-      include: health,info,env,metrics,beans,configprops
+      exposure:
+        include: health,info,env,metrics,beans,configprops
