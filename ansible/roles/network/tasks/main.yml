@@ -1,0 +1,7 @@
+- name: Create a network 
+  docker_network:
+    name: "app-network"
+    connected:
+      - app
+      - proxy
+      - database

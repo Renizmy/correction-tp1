@@ -1,0 +1,10 @@
+- name: Create docker database
+  docker_container:
+    name: database
+    image: renizmy/tp2-devops:tp_database
+    networks:
+      - name: app-network
+    env:
+      POSTGRES_PASSWORD=pwd
+      POSTGRES_USER=usr
+      POSTGRES_DB=db
