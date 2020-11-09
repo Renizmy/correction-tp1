@@ -2,6 +2,7 @@
   docker_container:
     name: database
     image: renizmy/tp2-devops:tp_database
+    restart: yes
     networks:
       - name: app-network
     env:
