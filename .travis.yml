@@ -13,6 +13,8 @@ jobs:
       script: bash scripts/build.sh
     - stage: prod
       script: bash scripts/docker.sh
+    - stage : deploy
+      script: ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
 
 branches:
   only:

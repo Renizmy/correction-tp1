@@ -1,5 +1,0 @@
-language: java
-jdk: openjdk10
-script:
-  - export JAVA_HOME=$HOME/openjdk11
-  - mvn clean verif	-$TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
