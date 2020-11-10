@@ -13,8 +13,6 @@ jobs:
       script: bash scripts/build.sh
     - stage: prod
       script: bash scripts/docker.sh
-    - stage: prod
-      script: bash scripts/deploy.sh
 
 branches:
   only:
