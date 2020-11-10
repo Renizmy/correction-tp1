@@ -6,4 +6,4 @@ all:
 
  children:
   prod:
-   hosts: sremi.beltramini.takima.cloud
+   hosts: remi.beltramini.takima.cloud
