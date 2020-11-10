@@ -21,7 +21,6 @@ services:
     container_name: reverse_proxy
     build: ./httpd
     ports:
-      - "8080:8080" # API port
       - "80:80" # front
     networks:
       - app-network

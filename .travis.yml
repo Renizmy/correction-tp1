@@ -6,6 +6,9 @@ addons:
   sonarcloud:
     organization: "renizmy"
     token: "$SONARCLOUD_TOKEN"
+
+install:
+  - pip install ansible
     
 jobs:
   include:
