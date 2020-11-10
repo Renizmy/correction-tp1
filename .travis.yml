@@ -9,10 +9,11 @@ addons:
     
 jobs:
   include:
-    - stage: deploy
-      script: expect scripts/deploy.sh
-  
-  
+    - stage: dev
+      script: bash scripts/build.sh
+    - stage: prod
+      script: bash scripts/docker.sh
+
 branches:
   only:
     - develop    

@@ -1,11 +1,7 @@
-#!/usr/bin/expect
+#!/bin/bash
 
-spawn ssh -p 500 remi@94.94.239.44.47
-match_max 100000
-expect "*?assword:*"
-send -- "$password\r"
-send -- "\r"
-
+sudo apt-get install sshpass
+sshpass -p $password ssh remi@94.239.44.47
 ansible-playbook -i /home/remi/Documents/correction-tp1/ansible/inventories/setup.yml /home/remi/Documents/correction-tp1/ansible/playbook.yml
 
 
