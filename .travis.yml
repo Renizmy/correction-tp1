@@ -17,7 +17,10 @@ jobs:
     - stage: prod
       script: bash scripts/docker.sh
     - stage : deploy
-      script: ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
+      env:
+        - ANSIBLE_HOST_KEY_CHECKING=false
+      script:
+        - ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
 
 branches:
   only:
