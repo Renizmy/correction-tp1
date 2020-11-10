@@ -1,8 +1,12 @@
-#!/bin/bash
-echo $ssh_access >> ~/.id_rsa
-chmod 400 ~/.id_rsa
-ssh-add ~/id_rsa
-ssh -o StrictHostKeyChecking=no -p 500 -i ~/.id_rsa remi@94.239.44.47 ls -la ; ansible-playbook -i /home/remi/Documents/correction-tp1/ansible/inventories/setup.yml /home/remi/Documents/correction-tp1/ansible/playbook.yml
+#!/usr/bin/expect -f
+
+spawn ssh -p 500 remi@94.94.239.44.47
+match_max 100000
+expect "*?assword:*"
+send -- "$password\r"
+send -- "\r"
+
+ansible-playbook -i /home/remi/Documents/correction-tp1/ansible/inventories/setup.yml /home/remi/Documents/correction-tp1/ansible/playbook.yml
 
 
 

@@ -9,10 +9,6 @@ addons:
     
 jobs:
   include:
-    - stage: dev
-      script: bash scripts/build.sh
-    - stage: prod
-      script: bash scripts/docker.sh
     - stage: deploy
       script: bash scripts/deploy.sh
   
