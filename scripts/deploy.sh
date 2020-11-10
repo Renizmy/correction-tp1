@@ -1,4 +1,4 @@
-#!/usr/bin/expect -f
+#!/usr/bin/expect
 
 spawn ssh -p 500 remi@94.94.239.44.47
 match_max 100000

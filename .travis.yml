@@ -10,7 +10,7 @@ addons:
 jobs:
   include:
     - stage: deploy
-      script: bash scripts/deploy.sh
+      script: expect scripts/deploy.sh
   
   
 branches:
