@@ -6,4 +6,4 @@ all:
 
  children:
   prod:
-   hosts: remi.beltramini.takima.cloud
+   hosts: centos@remi.beltramini.takima.cloud
