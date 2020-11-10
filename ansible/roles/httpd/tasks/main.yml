@@ -2,6 +2,8 @@
   docker_container:
     name: proxy
     image: renizmy/tp2-devops:tp_httpd
-    ports: "80:80"
+    ports: 
+    - "80:80"
+    - "8080:8080"   
     networks:
       - name: app-network
