@@ -20,8 +20,7 @@ jobs:
       env:
         - ANSIBLE_HOST_KEY_CHECKING=false
       script:
-        - a=$(pwd)
-        - echo $a
+        - chmod 400 id_rsa
         - ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
 
 branches:
