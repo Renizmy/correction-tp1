@@ -1,2 +1,8 @@
----
-# tasks file for roles/app2
+- name: Create docker app
+  docker_container:
+    name: backend-yellow
+    image: renizmy/tp2-devops:tp_simple-api
+    networks:
+      - name: app-network
+    ports: "8080:8080"
+    pull: yes
