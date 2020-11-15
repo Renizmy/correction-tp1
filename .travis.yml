@@ -14,10 +14,14 @@ install:
 jobs:
   include:
     - stage: dev
+      if: branch = develop OR master
       script: bash scripts/build.sh
     - stage: prod
+      if: branch = develop OR master
       script: bash scripts/docker.sh
+
     - stage : deploy
+      if: branch = master
       env:
         - ANSIBLE_HOST_KEY_CHECKING=false
       script:
