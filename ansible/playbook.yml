@@ -5,14 +5,15 @@
   - name: Test connection
     ping:
   roles:
-#  - docker
-#  - python
+  - docker
+  - python
   - network
   - database
-  - httpd
   - app
   - app2
   - devops-front
+  - httpd
+
 
 
 

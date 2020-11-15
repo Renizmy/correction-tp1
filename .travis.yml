@@ -17,13 +17,13 @@ jobs:
       script: bash scripts/build.sh
     - stage: prod
       script: bash scripts/docker.sh
-   # - stage : deploy
-    #  env:
-    #    - ANSIBLE_HOST_KEY_CHECKING=false
-    #  script:
-    #    - ansible-vault view id_rsa >> id_rsa
-    #    - chmod 400 id_rsa
-    #    - ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
+    - stage : deploy
+      env:
+        - ANSIBLE_HOST_KEY_CHECKING=false
+      script:
+        - ansible-vault view encrypted/id_rsa_encrypted >> id_rsa
+        - chmod 400 id_rsa
+        - ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
 
 branches:
   only:
