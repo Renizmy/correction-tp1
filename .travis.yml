@@ -13,12 +13,12 @@ install:
     
 jobs:
   include:
-    - stage: dev
-      if: branch = develop OR master
-      script: bash scripts/build.sh
-    - stage: prod
-      if: branch = develop OR master
-      script: bash scripts/docker.sh
+  #  - stage: dev
+  #    if: branch = develop # OR main
+  #    script: bash scripts/build.sh
+  #  - stage: prod
+  #    if: branch = develop  # OR main
+  #    script: bash scripts/docker.sh
 
     - stage : deploy
       if: branch = main
@@ -27,8 +27,7 @@ jobs:
       script:
        - touch ansible/.vault_pass
        - echo $vault_pass >> ansible/.vault_pass
-       - cat ansible/.vault_pass
-       - a=$⁽pwd)
+       - a=$(pwd)
        - echo $a
        - ansible-vault view ansible/encrypted/id_rsa_encrypted >> id_rsa
        - chmod 400 id_rsa
