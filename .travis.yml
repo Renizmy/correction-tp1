@@ -21,7 +21,7 @@ jobs:
       script: bash scripts/docker.sh
 
     - stage : deploy
-      if: branch = master
+      if: branch = main
       env:
         - ANSIBLE_HOST_KEY_CHECKING=false
       script: bash scripts/deploy.sh
