@@ -1,4 +1,35 @@
 language: java
-script:
-  - cd ./simple-api
-  - mvn clean verify
+dist: xenial
+
+  
+addons:
+  sonarcloud:
+    organization: "renizmy"
+    token: "$SONARCLOUD_TOKEN"
+
+install:
+  - pip install ansible
+  - pip install ansible-vault
+    
+jobs:
+  include:
+    - stage: dev
+      if: branch = develop OR master
+      script: bash scripts/build.sh
+    - stage: prod
+      if: branch = develop OR master
+      script: bash scripts/docker.sh
+
+    - stage : deploy
+      if: branch = master
+      env:
+        - ANSIBLE_HOST_KEY_CHECKING=false
+      script: bash scripts/deploy.sh
+
+cache:
+  directories:
+   - $HOME/.m2
+    
+services:
+  - docker
+

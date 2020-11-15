@@ -1,0 +1,8 @@
+- name: Create docker app
+  docker_container:
+    name: backend2
+    image: renizmy/tp2-devops:tp_simple-api
+    networks:
+      - name: app-network
+    ports: "8081:8080"
+    pull: yes

@@ -1,0 +1,7 @@
+- name: Create docker app
+  docker_container:
+    name: devops-front
+    image: renizmy/tp2-devops:tp_devops-front
+    networks:
+      - name: app-network
+    pull: yes

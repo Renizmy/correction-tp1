@@ -21,10 +21,15 @@ services:
     container_name: reverse_proxy
     build: ./httpd
     ports:
-      - "80:80"
+      - "80:80" # front
     networks:
       - app-network
 
+  devops-front:
+    container_name: devops-front
+    build: ./devops-front
+    networks:
+      - app-network
 
 volumes:
   my_db_volume:

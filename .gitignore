@@ -25,3 +25,8 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+## Ansible
+.vault_pass
+
+id_rsa

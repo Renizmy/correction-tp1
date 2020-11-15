@@ -1,0 +1,9 @@
+- name: Create docker app
+  docker_container:
+    name: proxy
+    image: renizmy/tp2-devops:tp_httpd
+    ports: 
+    - "80:80"
+    networks:
+      - name: app-network
+    pull: yes
