@@ -30,8 +30,8 @@ jobs:
        - echo $vault_pass >> ansible/.vault_pass
        - a=$(pwd)
        - echo $a
-       - ansible-vault view ansible/encrypted/id_rsa_encrypted >> id_rsa
-       - chmod 400 id_rsa
+       - sudo ansible-vault view ansible/encrypted/id_rsa_encrypted >> id_rsa
+       - sudo chmod 400 id_rsa
        - ansible-playbook -i ansible/inventories/setup.yml ansible/playbook.yml
 
 
