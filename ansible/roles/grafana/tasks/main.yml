@@ -2,6 +2,5 @@
   docker_container:
     name: grafana
     image: grafana/grafana
-    networks:
     ports: "3000:3000"
     pull: yes
