@@ -27,6 +27,7 @@ target/
 /.nb-gradle/
 
 ## Ansible
-.vault_pass
+ansible/vault_pass
+vault_pass
 
 id_rsa
