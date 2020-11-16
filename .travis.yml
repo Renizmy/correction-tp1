@@ -13,12 +13,12 @@ install:
     
 jobs:
   include:
-  #  - stage: dev
-  #    if: branch = develop # OR main
-  #    script: bash scripts/build.sh
-  #  - stage: prod
-  #    if: branch = develop  # OR main
-  #    script: bash scripts/docker.sh
+    - stage: dev
+      if: branch = develop OR main
+      script: bash scripts/build.sh
+    - stage: prod
+      if: branch = develop OR main
+      script: bash scripts/docker.sh
 
     - stage : deploy
       if: branch = main
