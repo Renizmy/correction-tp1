@@ -25,7 +25,7 @@ jobs:
       env:
         - ANSIBLE_HOST_KEY_CHECKING=false
         - ANSIBLE_VAULT_PASSWORD_FILE=ansible/.vault_pass
-      script: bash script/deploy.sh
+      script: bash scripts/deploy.sh
 
 cache:
   directories:
